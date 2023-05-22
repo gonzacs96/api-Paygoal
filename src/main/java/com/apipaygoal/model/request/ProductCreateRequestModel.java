@@ -2,7 +2,9 @@ package com.apipaygoal.model.request;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -18,9 +20,11 @@ public class ProductCreateRequestModel {
 
 	@NotNull
 	@Digits(integer = 10, fraction = 2, message = "El precio debe tener 2 decimales")
+	@DecimalMin(value = "0.00", inclusive = false, message = "El precio debe ser mayor a 0")
 	private BigDecimal precio;
 
 	@NotNull
+	@Min(value = 0, message = "La cantidad debe ser mayor o igual a 0")
 	private Integer cantidad;
 
 	public String getNombre() {

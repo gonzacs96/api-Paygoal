@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 
 @Entity(name = "products")
 public class ProductEntity implements Serializable {
@@ -26,9 +28,11 @@ public class ProductEntity implements Serializable {
 	private String descripcion;
 
 	@Column(nullable = false, scale = 2, precision = 10)
+	@DecimalMin(value = "0.00", inclusive = false, message = "El precio debe ser mayor a 0")
 	private BigDecimal precio;
 
 	@Column(nullable = false)
+	@Min(value = 0, message = "La cantidad debe ser mayor o igual a 0")
 	private Integer cantidad;
 
 	public UUID getProductoId() {

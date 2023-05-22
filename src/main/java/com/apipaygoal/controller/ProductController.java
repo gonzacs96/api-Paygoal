@@ -72,7 +72,7 @@ public class ProductController {
 	}
 
 	@GetMapping()
-	public List<ProductResponseModel> getProducts(
+	public ResponseEntity<List<ProductResponseModel>> getProducts(
 			@RequestParam(value = "nombre", required = false, defaultValue = "") String nombre) {
 		ModelMapper modelMapper = new ModelMapper();
 		List<ProductDto> products;
@@ -85,6 +85,6 @@ public class ProductController {
 			ProductResponseModel responseProduct = modelMapper.map(productDto, ProductResponseModel.class);
 			responseProducts.add(responseProduct);
 		}
-		return responseProducts;
+		return new ResponseEntity<>(responseProducts, HttpStatus.OK);
 	}
 }
