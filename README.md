@@ -1,6 +1,7 @@
 API REST de Gestión de Productos
 
 Esta API REST permite realizar operaciones de gestión de productos, como crear, obtener, actualizar y eliminar productos. Está desarrollada utilizando Java 8 y el framework Spring.
+
 Requisitos
 
     Java 8
