@@ -16,7 +16,6 @@ Configuración
 
 Ejecución
 
-    Compila el proyecto utilizando Maven: mvn clean install.
     Ejecuta la aplicación: mvn spring-boot:run o mediante el IDE que estés utilizando.
 
 La API estará disponible en http://localhost:3001 por defecto. Puedes modificar el puerto en la configuración si es necesario.
